@@ -18,12 +18,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "build:css": "postcss src/tailwind.css -o src/style.css",
-    "watch:css": "postcss src/tailwind.css -o src/style.css",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/tailwind.css -o src/style.css"
   },
   "eslintConfig": {
     "extends": [
