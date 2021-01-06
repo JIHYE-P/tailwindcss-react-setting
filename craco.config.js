@@ -1,4 +1,4 @@
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'production';
 
 module.exports = {
   style: {
@@ -6,7 +6,7 @@ module.exports = {
       plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
-        !isDev && require('@fullhuman/postcss-purgecss')({
+        isDev && require('@fullhuman/postcss-purgecss')({
           content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
         }),
       ],
