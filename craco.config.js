@@ -6,9 +6,9 @@ module.exports = {
       plugins: [
         require('tailwindcss'),
         require('autoprefixer'),
-        isDev && require('@fullhuman/postcss-purgecss')({
-          content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-        }),
+        // require('@fullhuman/postcss-purgecss')({
+        //   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+        // }),
       ],
     },
   },

@@ -1,4 +1,5 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   purge: [],
@@ -852,5 +853,16 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [],
+  plugins: [
+    plugin(function({addUtilities}){
+      addUtilities({
+        '.skew-10deg': {
+          transform: 'skewY(-10deg)'
+        },
+        '.skew-15deg': {
+          transform: 'skewY(-15deg)'
+        },
+      })
+    })
+  ],
 }
