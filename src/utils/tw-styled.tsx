@@ -37,12 +37,17 @@ export type FunctionTemplate = (
     ...templateElements: any[]
 ) => (props: { children?: any; [props: string]: any }) => any
 
-const functionTemplate = (Element: any): FunctionTemplate => (template, ...templateElements) =>
-  React.forwardRef(({ children, ...props }, ref) => (
-  <Element {...props} ref={ref} 
-    // className={parseTailwindClassNames(cleanTemplate(template, props.className), ...templateElements.map((t) => t(props)) )}
-  >{children}</Element>
-))
+const functionTemplate = (Element: any): FunctionTemplate => (
+  template, 
+  ...templateElements
+  ) => 
+    React.forwardRef(({ children, ...props }, ref) => {
+    return <Element 
+      {...props} 
+      ref={ref} 
+      className={parseTailwindClassNames(cleanTemplate(template, props.className), ...templateElements.map((t) => t(props)) )}
+    >{children}</Element>
+})
 
 export type IntrinsicElements = {
   [key in keyof JSX.IntrinsicElements]: FunctionTemplate
@@ -60,11 +65,11 @@ const tw = Object.assign((Component: any) => functionTemplate(Component), intrin
 
 export default tw
 
-const Template = tw.div`
-  text-sm text-bold
-  flex w-full h-full 
-  bg-gray-400
-`
+// const Template = tw.div`
+//   text-sm text-bold
+//   flex w-full h-full 
+//   bg-gray-400
+// `
 // const newTemplate = styled(main)`grid grid-cols-3`;
 
 {/* <Template className="text-sm text-bold flex w-full h-full bg-gray-400">
