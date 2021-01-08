@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import tw from './utils/tailwind-styled-components';
 import twStyled from './utils/tw-styled';
+import {Main} from './utils/styled-component';
 
 const BlogWrapper = styled.article.attrs({
   className: 'grid grid-cols-3 gap-4'
@@ -24,6 +25,12 @@ const PostInnter = twStyled(Post)`
   text-white font-bold
 `;
 
+const StyledMain = twStyled(Main)`
+  flex w-full
+  p-5
+  hover:bg-red-700
+`;
+
 function App() {
   return <>
     <main className="flex flex-col h-screen justify-center items-center bg-gray-100">
@@ -31,6 +38,9 @@ function App() {
       <PostInnter>tw 스타일 테스트~~~
         <h1 className="text-5xl">WOW</h1>
       </PostInnter>
+      <StyledMain>
+        여기는 메인
+      </StyledMain>
       <h1 className="text-xl text-indigo-600">styled tailwind CSS with styled-components</h1>
       <div className="w-12 h-12 bg-indigo-600 skew-10deg"></div>
     </main>
